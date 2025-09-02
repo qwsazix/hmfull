@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HMfull Lib</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <h1 id="libName">HMfull Library</h1>
+        <div id="request">
+            <div id="apiName">
+                <span id="apis">API:</span>
+            </div>
+            <div id="category">
+                <span id="cat">Category:</span>
+                <div id="sfw">
+                    <label>
+                        <input type="radio" name="category" value="sfw"> SFW
+                    </label>
+                </div>
+
+                <div id="nsfw">
+                    <label>
+                    <input type="radio" name="category" value="nsfw"> NSFW
+                    </label>
+                </div>
+            </div>
+            <div id="tags">
+                <span id="tagz">Tag:</span>
+            </div>
+
+            <button id="submitBtn">Search</button>
+        </div>
+        <div id="imgContainer"></div>
+    </body>
+</html>

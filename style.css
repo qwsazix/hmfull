@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width:100%;
+    font-family: 'Fjalla one';
+    background-color: antiquewhite;
+    user-select: none;
+}
+
+#apiName {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#request {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    flex-wrap:wrap;
+}
+
+#category {
+    display:none;
+}
+
+#tags >div {
+    display:none;
+}
+
+#tagz {
+    display:none;
+    flex-direction: column;
+}
+
+#tags {
+    display:flex;
+    width:100%;
+    justify-content: center;
+}
+
+#imgContainer {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#imgContainer >img {
+    max-width: 90%;
+    border: 1px solid black;
+}
+
+.active {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#libName {
+    width:100%;
+    text-align: center;
+}
+
+#apis {
+    text-align: center;
+    font-weight: bold;
+}
+
+#cat {
+    text-align: center;
+    font-weight: bold;
+}
+
+#tagz {
+    text-align: center;
+    font-weight: bold;
+}
+
+#submitBtn {
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Fjalla one';
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 10px;
+  max-width: none;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 35%;
+  transition: all 0.3s ease;
+}
+
+#submitBtn:hover,
+#submitBtn:focus {
+  opacity: .75;
+  color:rgb(0, 0, 255);
+}
+
+.apiRadioContainer input[type="radio"],
+.apiRadioContainer >label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apiRadioContainer:hover {
+    color:blue;
+}
+
+.apiRadioContainer {
+    color:black;
+    transition: all 0.3s ease;
+}
+
+#category >div input[type="radio"],
+#category >div >label {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#category >div input[type="radio"]:hover,
+#category >div >label:hover {
+    color:rgb(0, 0, 255);
+}
+
+#category {
+    color:black;
+}
+
+.tag-container input[type="radio"],
+.tag-container >label {
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-container input[type="radio"]:hover,
+.tag-container >label:hover {
+    color:rgb(0, 0, 255);
+}
+
+#tags >div {
+    color:black;
+}
+
+.pressed {
+    color:blue;
+}
