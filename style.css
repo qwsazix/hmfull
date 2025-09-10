@@ -171,3 +171,8 @@ input[type="radio"] {
 .pressed {
   color: blue;
 }
+
+.apiRadioContainer,
+.categoryContainer {
+  cursor:pointer;
+}
