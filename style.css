@@ -118,21 +118,26 @@ body {
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 35%;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 #submitBtn:hover,
 #submitBtn:focus {
   opacity: .75;
-  color:rgb(0, 0, 255);
+  color:rgb(39 206 254);
 }
 
 /* Радио-кнопки */
 .apiRadioContainer,
-#category > div,
+.categoryContainer,
 .tag-container {
+  transition: all 0.5s ease;
+}
+
+.apiRadioContainer >label,
+.categoryContainer > label,
+.tag-container >label {
   cursor: pointer;
-  transition: color 0.3s ease;
 }
 
 .apiRadioContainer:hover,
@@ -170,9 +175,4 @@ input[type="radio"] {
 /* Выбранные элементы */
 .pressed {
   color: blue;
-}
-
-.apiRadioContainer,
-.categoryContainer {
-  cursor:pointer;
 }
