@@ -1,89 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    width:100%;
-    font-family: 'Fjalla one';
-    background-color: antiquewhite;
-    user-select: none;
+  width: 100%;
+  font-family: 'Fjalla One', sans-serif;
+  background: linear-gradient(135deg, #f7ede2, #f9dcc4);
+  user-select: none;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-#apiName {
-    display:flex;
-    flex-wrap: wrap;
+/* Заголовок */
+#libName {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #222;
+  letter-spacing: 2px;
 }
 
+/* Блок фильтров */
 #request {
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content:center;
-    align-items:center;
-    gap:5px;
-    flex-wrap:wrap;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
 }
 
-#category {
-    display:none;
-}
-
-#tags >div {
-    display:none;
-}
-
+/* Заголовки внутри фильтров */
+#apis,
+#cat,
 #tagz {
-    display:none;
-    flex-direction: column;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
 }
 
+/* API контейнер */
+#apiName {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Категории */
+#category {
+  display: none;
+  gap: 10px;
+  align-items: center;
+}
+
+#category > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Теги */
 #tags {
-    display:flex;
-    width:100%;
-    justify-content: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 }
 
-#imgContainer {
-    width:100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#imgContainer >img {
-    max-width: 90%;
-    border: 1px solid black;
+#tags > div {
+  display: none;
 }
 
 .active {
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-#libName {
-    width:100%;
-    text-align: center;
-}
-
-#apis {
-    text-align: center;
-    font-weight: bold;
-}
-
-#cat {
-    text-align: center;
-    font-weight: bold;
-}
-
-#tagz {
-    text-align: center;
-    font-weight: bold;
-}
-
+/* Кнопка */
 #submitBtn {
   background-color: #222;
   border-radius: 4px;
@@ -118,51 +127,47 @@ body {
   color:rgb(0, 0, 255);
 }
 
-.apiRadioContainer input[type="radio"],
-.apiRadioContainer >label {
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* Радио-кнопки */
+.apiRadioContainer,
+#category > div,
+.tag-container {
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.apiRadioContainer:hover {
-    color:blue;
+.apiRadioContainer:hover,
+#category > div:hover,
+.tag-container:hover {
+  color: blue;
 }
 
-.apiRadioContainer {
-    color:black;
-    transition: all 0.3s ease;
+input[type="radio"] {
+  accent-color: #222;
+  cursor: pointer;
 }
 
-#category >div input[type="radio"],
-#category >div >label {
-    cursor: pointer;
-    transition: all 0.3s ease;
+/* Галерея изображений */
+#imgContainer {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-#category >div input[type="radio"]:hover,
-#category >div >label:hover {
-    color:rgb(0, 0, 255);
+#imgContainer > img {
+  max-width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
 }
 
-#category {
-    color:black;
+#imgContainer > img:hover {
+  transform: scale(1.03);
 }
 
-.tag-container input[type="radio"],
-.tag-container >label {
-    cursor:pointer;
-    transition: all 0.3s ease;
-}
-
-.tag-container input[type="radio"]:hover,
-.tag-container >label:hover {
-    color:rgb(0, 0, 255);
-}
-
-#tags >div {
-    color:black;
-}
-
+/* Выбранные элементы */
 .pressed {
-    color:blue;
+  color: blue;
 }
