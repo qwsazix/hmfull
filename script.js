@@ -154,6 +154,8 @@ const createRadio = (name,value,container,prefix = "") => { //функция, ч
 const updateTags = (chosenApi, chosenCategory) => { // функция, что обновляет теги и контейнеры тегов
 
   if (chosenApi && chosenCategory) {
+  const tags = document.getElementById("tags");
+  tags.style.display = "flex";
 
   const tagsDiv = document.querySelectorAll(`#tags >div`);
   tagsDiv.forEach(div => {
