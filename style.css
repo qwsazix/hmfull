@@ -168,16 +168,24 @@ input[type="radio"] {
   gap: 15px;
 }
 
-#imgContainer > img {
-  cursor:zoom-in;
+.img-wrapper {
   width: 25%;
-  border-radius: 4px;
+  max-height: 550px;
+  overflow: hidden;
+  border-radius: 4px;     
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
-  object-fit: cover;
 }
 
-#imgContainer >img:hover {
+.img-wrapper > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+  border-radius: inherit;
+  transition: all 0.3s ease;
+}
+
+.img-wrapper >img:hover {
   filter:brightness(105%);
 }
 
@@ -236,7 +244,7 @@ input[type="radio"] {
 
 .lightbox-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     max-height: 5%;
@@ -250,8 +258,16 @@ input[type="radio"] {
   display:flex;
   align-items: center;
   justify-content: center;
-  width: 5%;
+  width: 15%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lightbox-header >div:hover,
+.lightbox-header >div:focus {
+  opacity: 0.7;
 }
 
 
@@ -296,6 +312,7 @@ input[type="radio"] {
     object-fit: contain;         
     box-shadow: 2px 4px 10px black;
     transition: all 0.3s ease;
+    border-radius: 4px;
 }
 
 .no-scroll {
@@ -310,4 +327,19 @@ input[type="radio"] {
 #fullscreen {
     width: 20px;
     height: 30px;
+}
+
+@media (max-width: 550px) {
+  .img-wrapper {
+    width: 80%;
+    min-height: 350px;
+  }
+  
+  .lightbox-header {
+    max-height: 10%;
+  }
+
+  .lightbox-header >div {
+    width:100%;
+  }
 }
