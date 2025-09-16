@@ -1,14 +1,49 @@
 const baseUrl = 'https://hmfullfetchserver.onrender.com';
+const submitBtn = document.getElementById('submitBtn');
 
-const fetchTags = async () => { 
+
+const fetchTags = async () => {
+  const loading = document.getElementById('awaitingServer');
+  const apiLabel = document.getElementById('apis');
+  const errorLabel = document.getElementById('serverError');
+  const statusText = document.getElementById('statusText');
+
+  loading.style.display = 'block';
+
+  const timeout = 10000;
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeout);
+
+  //dots animation in status text
+  let dots = 0;
+  const dotsAnimation = setInterval(() => {
+    dots = (dots + 1) % 4;
+    statusText.textContent = "Server is loading" + '.'.repeat(dots);
+  },500);
+
   try {
-    const respond = await fetch(`${baseUrl}/tags`);
+    const respond = await fetch(`${baseUrl}/tags`, {
+      signal:controller.signal
+    });
+
+    clearTimeout(timer);
+
     if (!respond.ok) throw new Error('Server error');
     const data = await respond.json();
     myData = data;
+
+    apiLabel.style.display = 'block';
+    submitBtn.style.display = 'inline-block';
+    return true;
   }
   catch (error) {
     console.error(error);
+    errorLabel.style.display = 'block';
+    return false;
+  } finally {
+    clearTimeout(timer);
+    clearInterval(dotsAnimation);
+    loading.style.display = 'none';
   }
   //Делаем запрос с нашего сервера, чтобы получить теги
 }
@@ -16,7 +51,8 @@ const fetchTags = async () => {
 //создаем выбор API, категории и тега, добавляем на сайт.
 let myData = null;
 const int = async () => {
-  await fetchTags();
+  const success = await fetchTags();
+  if (!success) return;
 
   Object.entries(myData).forEach(([api,categories]) => {
     const apiContainer = document.getElementById('apiName');
@@ -79,8 +115,7 @@ const creatingRequest = async () => {
 
   //обновляем выбранную категорию
   const categories = document.querySelectorAll(`#category >div`);
-  categories.forEach(category => {
-
+  categories.forEach(category => { 
     category.addEventListener('change', (e) => {
       chosenCategory = e.target.value;
       for (let catContainer of categories) {
@@ -117,18 +152,25 @@ const creatingRequest = async () => {
   
   //создаем юрл запрос к локальному серверу
 
-  const submitBtn = document.getElementById('submitBtn');
   const imageContainer = document.getElementById('imgContainer');
   submitBtn.addEventListener('click', async () => {
-    if (chosenApi && chosenCategory && chosenTag) {
-      const requestUrl = `${baseUrl}/${chosenApi}/${chosenCategory}/${chosenTag}`; //создаем запрос к серверу на основе выбранных тегов
-      const result = await request(requestUrl,imageContainer);
-      
-      if (!result) {
-        alert(`API server error, couldn't fetch the image. Try other API. Check the error in console`);
+    if (!chosenApi || !chosenCategory || !chosenTag) {
+      if (!chosenApi) {
+        alert("Please select an API");
+      } else if (!chosenCategory) {
+        alert("Please select a category");
+      } else {
+        alert("Please select a tag");
       }
+      return; // выход из функции, дальше код не идёт
+    }
 
-    } else alert("Вы не выбрали тег. You didn't choose the tag");
+    const requestUrl = `${baseUrl}/${chosenApi}/${chosenCategory}/${chosenTag}`;
+    const result = await request(requestUrl, imageContainer);
+
+    if (!result) {
+      alert("Failed to fetch image. Please try another API or try again later");
+    }
   });
 }
 
