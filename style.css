@@ -168,10 +168,6 @@ input[type="radio"] {
   transition: transform 0.3s ease;
 }
 
-#imgContainer > img:hover {
-  transform: scale(1.03);
-}
-
 /* Выбранные элементы */
 .pressed {
   color: blue;
