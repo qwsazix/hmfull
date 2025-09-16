@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>HMfull Lib</title>
         <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
+        <script type="module" src="./js/main.js"></script>
     </head>
     <body>
         <h1 id="libName">HMfull Library</h1>
@@ -40,8 +40,31 @@
                 <span id="tagz">Tag:</span>
             </div>
 
-            <button id="submitBtn">Search</button>
+            <button class="button" id="submitBtn">Search</button>
+            <button class="button" id="clearImgs">Clear Images</button>
         </div>
         <div id="imgContainer"></div>
+
+        <div class="lightbox">
+            <div class="lightbox-header">
+                <!-- buttons -->
+                 <div id="downloadBtnContainer">
+                    <img src="/sprites/download.svg" id="downloadBtn" title="Download image"></img>
+                 </div>
+
+                 <div id="closeBtnContainer">
+                    <button id="closeBtn" title="Close">×</button>
+                 </div>
+            </div>
+
+            <div class="lightbox-main">
+                <!-- lightbox image container -->
+                <div class="lightbox-body">
+                    <div id="lightboxImgCont">
+                        <img id="lightboxImg" src="#">
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
