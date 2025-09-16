@@ -93,7 +93,7 @@ body {
 }
 
 /* Кнопка */
-#submitBtn {
+.button {
   background-color: #222;
   border-radius: 4px;
   border-style: none;
@@ -125,6 +125,13 @@ body {
 #submitBtn:focus {
   opacity: .75;
   color:rgb(39 206 254);
+}
+
+#clearImgs:hover,
+#clearImgs:focus {
+  opacity: .75;
+  background-color: rgb(219, 202, 202);
+  color:darkred;
 }
 
 /* Радио-кнопки */
@@ -162,10 +169,16 @@ input[type="radio"] {
 }
 
 #imgContainer > img {
-  max-width: 90%;
-  border-radius: 12px;
+  cursor:zoom-in;
+  width: 25%;
+  border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  object-fit: cover;
+}
+
+#imgContainer >img:hover {
+  filter:brightness(105%);
 }
 
 /* Выбранные элементы */
@@ -201,4 +214,100 @@ input[type="radio"] {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+/* lightbox */
+
+.lightbox {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    inset: 0;
+    width:100%;
+    height: 100vh;
+    backdrop-filter: blur(12px);
+    background: rgba(46, 69, 85, 0.5);
+    gap:20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: white;
+}
+
+.lightbox-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    max-height: 5%;
+    padding: 0 15px;
+    background: rgba(0, 0, 0, 0.6);
+    gap:30px;
+    flex:1;
+}
+
+.lightbox-header >div {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  width: 5%;
+  cursor: pointer;
+}
+
+
+#closeBtn {
+    font-size: 28px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* основная зона */
+.lightbox-main {
+    display: flex;
+    flex: 1;
+    max-height:90vh;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* lightbox */
+.lightbox-body {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    flex:1;
+}
+
+#lightboxImgCont {  
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#lightboxImg {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;         
+    box-shadow: 2px 4px 10px black;
+    transition: all 0.3s ease;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+#downloadBtn {
+  width: 20px;
+  height:30px;
+}
+
+#fullscreen {
+    width: 20px;
+    height: 30px;
 }
