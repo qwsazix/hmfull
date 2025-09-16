@@ -41,7 +41,10 @@ export const request = async (url,container) => { //делаем запрос к
     const newImg = document.createElement('img');
     newImg.src = data.url;
     newImg.draggable = false;
-    container.appendChild(newImg);
+    const subContainer = document.createElement('div');
+    subContainer.className = 'img-wrapper';
+    subContainer.appendChild(newImg);
+    container.appendChild(subContainer);
     return true;
   }
   catch (error) {
