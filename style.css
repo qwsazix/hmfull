@@ -38,7 +38,7 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 0px;
   align-items: center;
 }
 
@@ -100,7 +100,7 @@ body {
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  display: inline-block;
+  display: none;
   font-family: 'Fjalla one';
   font-size: 16px;
   line-height: 1.5;
@@ -175,4 +175,34 @@ input[type="radio"] {
 /* Выбранные элементы */
 .pressed {
   color: blue;
+}
+
+/* loader logic */
+#awaitingServer {
+    display:none;
+}
+
+#apis {
+    display:none;
+}
+
+#serverError {
+    display:none;
+    color:darkred;
+    font-size: 1.5rem;
+}
+
+.loader {
+    border: 6px solid #f3f3f3;
+    border-top: 6px solid #000000;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
