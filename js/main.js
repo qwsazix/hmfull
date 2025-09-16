@@ -113,7 +113,7 @@ const creatingRequest = async () => {
 
 creatingRequest();
 
-const closeBtn = document.getElementById('closeBtn');
+const closeBtn = document.getElementById('closeBtnContainer');
 const lightbox = document.querySelector('.lightbox');
 
 closeBtn.addEventListener('click', () => {
