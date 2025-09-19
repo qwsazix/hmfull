@@ -135,9 +135,11 @@ downloadBtn.addEventListener('click', () => {
   const lightboxImg = document.getElementById('lightboxImg');
   link.href = lightboxImg.src;
   link.download = "image.png";
+  link.target = "_blank";
   link.click();
 });
 
 window.addEventListener("pageshow", () => {
   document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
 });
+
